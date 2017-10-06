@@ -6,15 +6,8 @@
             <?php $clang->eT("Warning"); ?><br /><?php $clang->eT("READ THIS CAREFULLY BEFORE PROCEEDING"); ?>
         </div>
         <p><?php $clang->eT("There are two ways to stop a survey. Please read carefully on the two options below and choose the right one for you."); ?></p>
-        <table id='deactivation'><tr><th width='50%'><?php $clang->eT("Expiration"); ?></th><th><?php $clang->eT("Deactivation"); ?></th></tr>
-            <tr><td><ul>
-                        <li><?php $clang->eT("No responses are lost.");?></li>
-                        <li><?php $clang->eT("No participant information lost.");?></li>
-                        <li><?php $clang->eT("Ability to change of questions, groups and parameters is still limited.");?></li>
-                        <li><?php $clang->eT("An expired survey is not accessible to participants (they only see a message that the survey has expired).");?></li>
-                        <li><?php $clang->eT("It's still possible to perform statistics on responses using LimeSurvey.");?></li>
-                    </ul>
-                </td>
+        <table id='deactivation'><tr><th><?php $clang->eT("Deactivation"); ?></th></tr>
+            <tr>
                 <td>
                     <ul>
                         <li><?php $clang->eT("All responses are not accessible anymore with LimeSurvey).");?> <?php echo $clang->gT("Your response table will be renamed to:")." {$dbprefix}old_".$surveyid."_{$date}"; ?></li>
@@ -27,11 +20,6 @@
                     </ul>
                 </td>
             </tr><tr>
-                <td>
-                    <?php echo CHtml::form(array("admin/survey/sa/expire/surveyid/{$surveyid}/"), 'post'); ?>
-                        <p><input type='submit' value='<?php $clang->eT("Expire survey"); ?>'/></p>
-                    </form>
-                </td>
                 <td>
                     <?php echo CHtml::form(array("admin/survey/sa/deactivate/surveyid/{$surveyid}/"), 'post'); ?>
                         <p><input type='submit' value='<?php $clang->eT("Deactivate survey"); ?>' onclick="<?php echo convertGETtoPOST($this->createUrl("admin/survey/sa/deactivate/".$surveyid)."?action=deactivate&amp;ok=Y&amp;sid=$surveyid"); ?>" /></p>
